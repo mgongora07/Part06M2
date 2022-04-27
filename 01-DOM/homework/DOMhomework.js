@@ -53,19 +53,27 @@ this.complete=true;
 //    8) Devolver la variable toDoShell
 
 
+
 function buildToDo(todo,index) {
   // Tu código acá:
+let box=document.createElement('input')
+box.type='checkbox'
+box.name='box'
+box.className='completeCheckbox'
 let toDoShell=document.createElement('div');
 toDoShell.className='toDoShell';
 let toDoText=document.createElement('span')
 toDoText.innerText=todo.description;
-toDoText.id=index;
+box.id=index;
+//toDoText.id=index;
 if(todo.complete){
-toDoText.classname ='completeText'
+box.checked=true;
+  //toDoText.classname ='completeText'
 }
 toDoShell.appendChild(toDoText);
-
-toDoText.addEventListener('click',completeToDo)
+toDoShell.appendChild(box);
+//toDoText.addEventListener('click',completeToDo)
+box.addEventListener('click',completeToDo);
 
 return toDoShell;
 
